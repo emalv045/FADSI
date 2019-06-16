@@ -1,0 +1,88 @@
+<div class="row mr-auto">
+  <div id="animacionArriba" class="card">
+    <div class="card-body">
+        {{#if usuarioLog.esAdministrador}}
+          <h1><i class="fa fa-address-card-o" aria-hidden="true"> Administrador</i></h1>
+        {{else}}
+        {{#if usuarioLog.esGerente}}
+          <h1 class="display-4">Gerente</h1>
+        {{else}}
+          <h1 class="display-4">Agente</h1>
+        {{/if}}
+        {{/if}}
+        <div class="card">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{usuarioLog.cedula}}</td>
+                    <td>{{usuarioLog.nombre}}</td>
+                    <td>{{usuarioLog.correo}}</td>
+                    <td>{{usuarioLog.telefono}}</td>
+                    <td>{{usuarioLog.usuario}}</td>
+                    <td>
+                        <a id="colorCafe" href="/usuario/actualizarUsuario"></a><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <a id="btnAgregarSitio" href="/administracion/migrar" class="btn btn-light ml-auto mt-4">Migrar base a Neo4j</a>        
+    </div>
+  </div>
+</div>
+
+<div class="card ml-3 mt-3">
+  <div class="row">
+    <div class="col">
+      <div class="card-body">
+        <h3>Gestion de Sitios</h3>
+        <a class="btn btn-light" href="/administracion/agregar/sitio" id="btnAgregarSitio">Agregar Sitio</a>
+        <a class="btn btn-light" href="/administracion/consultar/sitio" id="btnAgregarSitio">Sitios</a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-body">
+        <h3>Gestion de productos</h3>
+        <a class="btn btn-light" href="/administracion/agregar/producto" id="btnAgregarSitio">Agregar Producto</a>
+        <a class="btn btn-light" href="/administracion/consultar/producto" id="btnAgregarSitio">Productos</a>
+      </div>
+    </div>
+    <div id="colorCafe" class="w-100 text-center mt-4"><h2>Consultas</h2></div>
+    <div class="col">
+      <div class="card-body">
+        <form action="" method="POST">
+          <div class="form-group">
+            <h5>Mostrar pedidos de cliente</h5>
+            <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+            <button type="submit" class="btn btn-light mt-4 btn-block" id="btnAgregarSitio">Buscar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-body">
+        <a class="btn btn-light" href="" id="btnAgregarSitio">Sitios con pedidos</a>
+        <a class="btn btn-light" href="" id="btnAgregarSitio">Top 5 sitios con pedidos</a>
+        <div class="w-100"></div>
+        <form action="" method="POST">
+          <div class="form-group mt-4">
+            <h5>Generar Ruta Optima</h5>
+            <input type="text" class="form-control mt-2" name="usuario" placeholder="Usuario">
+            <input type="text" class="form-control mt-2" name="usuario" placeholder="# Pedido">
+            <button type="submit" class="btn btn-light mt-4 btn-block" id="btnAgregarSitio">Buscar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

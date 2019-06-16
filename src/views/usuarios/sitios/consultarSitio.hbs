@@ -1,0 +1,48 @@
+<a class="btn btn-light btn-lg mb-3" href="/usuario/menu" role="button">
+  <i class="fa fa-undo" aria-hidden="true"></i> Volver 
+</a>
+
+
+<div id="animacionArriba" class="card">
+    <div class="card-body">
+        <h3 class="text-center"><i class="fa fa-building" aria-hidden="true"></i> Sitios</h3>
+    </div>
+</div>
+
+<div class="col-md-10 offset-md-1" style="background-color: #fff;margin-top: 25px;padding:20px;">
+
+<table class="table table-striped" id="tabla1">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Repartidores</th>
+            <th>Coordenadas</th>
+            <th> </th>      
+        </tr>
+    </thead>
+    <tbody>
+        {{#each consulta}}
+        <tr>
+            <td>
+
+            </td>
+            <td>{{codigo}}</td>
+            <td>{{nombre}}</td>
+            <td>{{descripcion}}</td>
+            <td>{{repartidores}}</td>
+            <td>{{coordenadas}}</td>
+                
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div>
+
+</div>
+
+     
+</div>

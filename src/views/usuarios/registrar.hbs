@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div id="animacionArriba" class="card">
+            <div class="card-body">
+                <h1>Registrar Usuario</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/usuario/registrarUsuario" method="POST" class="form-group">
+                    <h1 class="text-center mb-5">Formulario</h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" class="form-control" name="cedula" placeholder="Cedula" value="{{cedula}}" required>
+                            </div>                       
+                            <div class="col">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{nombre}}" required>
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control" name="fechaNacimiento" placeholder="Fecha de nacimiento" value="{{edad}}">
+                            </div>
+                            <div class="w-100 mt-2 mb-2"></div>
+                            <div class="col">
+                                <input type="text" class="form-control mb-2" name="usuario" placeholder="Usuario" value="{{usuario}}"required>
+                                <input type="text" class="form-control mb-2" name="correo" placeholder="Correo" value="{{correo}}"required>
+                                <input type="text" class="form-control" name="telefono" placeholder="Número Telefonico" value="{{telefono}}"required>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control mb-2" name="contraseña" placeholder="Contraseña" required>
+                                <input type="password" class="form-control" name="contraseñaC" placeholder="Confirmar contraseña" >
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-outline-light mt-4">Registrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

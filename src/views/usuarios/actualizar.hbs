@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div id="animacionArriba" class="card">
+            <div class="card-body">
+                <h1>Actualizar Datos</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/usuario/actualizarUsuario/{{usuarioLog.id}}" method="POST" class="form-group">
+                    <h1 class="text-center mb-5">Formulario</h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" class="form-control" name="cedula" placeholder="Cedula" value="{{usuarioLog.cedula}}" required>
+                            </div>                       
+                            <div class="col">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{usuarioLog.nombre}}" required>
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control" name="fechaNacimiento" placeholder="Fecha de nacimiento" value="{{usuarioLog.edad}}">
+                            </div>
+                            <div class="w-100 mt-2 mb-2"></div>
+                            <div class="col">
+                                <input type="text" class="form-control mb-2" name="usuario" placeholder="Usuario" value="{{usuarioLog.usuario}}"required>
+                                <input type="text" class="form-control mb-2" name="correo" placeholder="Correo" value="{{usuarioLog.correo}}"required>
+                                <input type="text" class="form-control" name="telefono" placeholder="Número Telefonico" value="{{usuarioLog.telefono}}"required>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control mb-2" name="contraseña" placeholder="Contraseña" required>
+                                <input type="password" class="form-control" name="contraseñaC" placeholder="Confirmar contraseña" >
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-outline-light mt-4">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

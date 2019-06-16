@@ -1,0 +1,76 @@
+<div id='animacionArriba'class="card ml-auto">
+    <div class="card-body">
+        <h3><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> Información Personal</h3>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{usuarioLog.cedula}}</td>
+                <td>{{usuarioLog.nombre}}</td>
+                <td>{{usuarioLog.correo}}</td>
+                <td>{{usuarioLog.telefono}}</td>
+                <td>{{usuarioLog.usuario}}</td>
+                <td>
+                    <a id="colorCafe" href="/usuario/actualizarUsuario"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a id="colorCafe" href="/usuario/eliminarCuenta/{{usuarioLog._id}}" onclick="return confirm('Seguro que desea eliminar su cuenta ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card" style="background-color: #fff;margin-top: 25px;padding:20px;">
+
+<br>
+<div class="row">
+    <div class="col card ml-2 mr-2">
+            <div class="form-group mt-2">
+                <a id='btnAgregarSitio' class="btn btn-light btn-lg" href="/usuario/consultar/todo"><i class="fa fa-list-alt"></i> Ver productos</a>
+                <a id='btnAgregarSitio' class="btn btn-light btn-lg" href="/usuario/consultar/sitio"><i class="fa fa-list-alt"></i> Ver sitios</a>
+            </div>
+    </div>
+    <div class="col card ml-2 mr-2">
+            <div class="form-group col-md-6">
+                <label class="mt-2">ID del Lugar</label>
+                <input type="text"class="form-control"name="lugar">
+                <label class="mt-2">Radio</label>
+                <input type="number"class="form-control"name="radio">
+                <a id='btnAgregarSitio' class="btn btn-light btn-lg mt-2" href="/usuario/consultar/lugaresCercanos"><i class="fa fa-list-alt"></i> Lugares Cercanos</a>
+                
+
+            </div>
+    </div>
+</div>
+      
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <a id='colorCafe' class="btn btn-light" href="/usuario/carrito">
+                        <h3><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>Carrito de Compras</h3>
+                    </a>
+                </div>
+                <div class="col">
+                    <a id='colorCafe' class="btn btn-light" href="/usuario/proceso">
+                        <h3><i class="fa fa-truck" aria-hidden="true"></i> Pedidos en Proceso</h3>
+                    </a>
+                </div>
+                <div class="col">
+                    <a id='colorCafe' class="btn btn-light" href="/usuario/procesado">
+                        <h3><i class="fa fa-check" aria-hidden="true"></i> Pedidos Procesados</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -1,0 +1,147 @@
+<a class="btn btn-light btn-lg mb-3" href="/administracion/menu" role="button">
+  <i class="fa fa-undo" aria-hidden="true"></i> Volver 
+</a>
+{{#each errors}}
+<div class="alert alert-light alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+<p></p>
+
+<div class="col-md-10 mx-auto">
+  <div class="card text-center">
+    <div class="card-header">
+      <h4><i class="fa fa-building" aria-hidden="true"></i> Agregar Sitio </h4>  
+    </div>
+    <div class="card-body">
+      <form action="/administracion/sitios/agregarSitio" method="POST">
+        <div class="form-group">
+          <input type="text" id="codigoTxt" name="codigo" class="form-control" placeholder="Código" autofocus/>
+          <h1></h1>
+          <input type="text" id="nombreTxt" name="nombre" class="form-control" placeholder="Nombre" autofocus/>
+          <h1></h1>
+          <input type="text" id="descripcionTxt" name="descripcion" class="form-control" placeholder="Descripción" autofocus/>   
+          <h1></h1>
+          <input type="number" id="repartidoresTxt" name="repartidores" class="form-control" placeholder="Cantidad de repartidores" autofocus/>
+          <h1></h1>
+          <input type="text" id="direccionTxt" name="direccion" class="form-control" placeholder="Dirección exacta" autofocus/>
+          <h1></h1>   
+          <input type="text" id="coordenadasTxt" name="coordenadas" class="form-control" placeholder="Coordenadas" autofocus/>
+          <h1></h1>                 
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-light btn-block" type="submit">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="card ml-3 mt-4">
+  <body>
+    <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">
+          Buscar
+        </div>
+        <br>
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Escriba un lugar">
+      </div>
+      <div id="pac-guardar">
+        <input id="pac-inputGuardar" type="button"
+            value="Guardar">
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 9.9333, lng: -84.0833},
+    zoom: 13
+  });
+
+  var card = document.getElementById('pac-card');
+  var input = document.getElementById('pac-input');
+  var guardar = document.getElementById('pac-inputGuardar');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  var infowindow = new google.maps.InfoWindow();
+  var infowindowContent = document.getElementById('infowindow-content');
+
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+  autocomplete.bindTo('bounds', map);
+
+  autocomplete.setFields(
+    ['formatted_address','address_components', 'geometry', 'icon', 'name','rating','types','opening_hours',
+    'formatted_phone_number','website','photo']
+  );
+
+  infowindow.setContent(infowindowContent);
+  var marker = new google.maps.Marker({
+    map: map,
+    anchorPoint: new google.maps.Point(0, -29)
+  });
+
+  autocomplete.addListener('place_changed', function() {
+    infowindow.close();
+    marker.setVisible(false);
+    var place = autocomplete.getPlace();
+
+    if (!place.geometry) {
+      window.alert("No hay detalles de ese lugar: '" + place.name + "'");
+      return;
+    }
+
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    }else{
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+    }
+
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+
+    var address = '';
+    address = [
+    ('Tipo: '+place.types[0] || ''),
+    ('Telefono: '+place.formatted_phone_number || ''),
+    ('Rating: '+place.rating || ''),
+    ('Horario: '+place.opening_hours.weekday_text || ''),
+    ('Website: '+place.website || ''),
+    (place.photos[0].photo_reference)
+    ].join(' ');
+
+    infowindowContent.children['place-icon'].src = place.icon;
+    infowindowContent.children['place-name'].textContent = place.name;
+    infowindowContent.children['place-address'].textContent = address;
+    infowindow.open(map, marker);
+
+    var coordenadas = (place.geometry.location).toString().substring(1).slice(0,-1);//Quita los paréntesis
+
+    guardar.addEventListener("click", function(){
+      document.getElementById("coordenadasTxt").value=coordenadas;
+      document.getElementById("nombreTxt").value=place.name;
+      document.getElementById("direccionTxt").value=input.value;
+    });
+  });
+  autocomplete.setTypes('establishment');
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkw_Mnp0Xq1Q8iGBjF3Tjf0PhGfIc7
+9Fo&libraries=places&callback=initMap"async defer></script>
+  </body>
+</div>

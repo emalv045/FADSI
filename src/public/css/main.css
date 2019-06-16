@@ -1,0 +1,229 @@
+body {
+  animation-name: bcolor;
+  animation-duration: 30s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+
+
+@keyframes bcolor {
+  0% {
+    background: #4ECDC4;  /* fallback for old browsers */
+  }
+  100% {
+    background: #304352;  /* fallback for old browsers */
+
+  }
+}
+
+.card-body{
+    background: #3a948c;
+    color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}   
+
+#btnAgregarSitio{
+  background: #3a948c;
+    color: #ffffff;
+}
+
+#btnAgregarSitio:hover{
+  background: #53d4ca;
+}
+
+#inicio {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background-image: url("Imagenes/Ciudad.png");
+    background-position: 0px;
+    background-size: auto;
+    background-repeat: repeat-x;
+    animation-name: bgscroll;
+    animation-duration: 200s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+  
+@keyframes bgscroll {
+    from {background-position: 0px 0px, 0px 100%, 0px 50%, 0px 0px;}
+    to {background-position: 7680px 0, 5760px 100%, 3840px 50%, 1920px 0;}
+}
+
+#TituloCafe{
+    color: #3a948c;
+}
+
+#colorCafe{
+    color: #3a948c;
+}
+
+#colorCafe:hover{
+    color: #2d586b;
+}
+
+#imgMoto {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background-image: url("Imagenes/Entrega.png");
+    background-repeat: no-repeat ; 
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: repeat-x;
+    animation-name: bgscroll;
+    animation-duration: 200s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#imgCliente {
+    background-image: url("Imagenes/Cliente.png");
+    background-repeat: no-repeat ; 
+    background-position: center center;
+    background-size: 75%;
+    animation: amimacion1 3s linear ;
+}
+
+#imgAdministracion {
+    background-image: url("Imagenes/Administracion.png");
+    background-repeat: no-repeat ; 
+    background-position: center center;
+    background-size: 75%;
+    animation: amimacion1 3s linear ;
+}
+
+@keyframes amimacion1 {
+    0%   {margin-right:100%;}
+    25%  {margin-right:100%;}
+    50%  {margin-right:100%;}
+    65%  {margin-right:2%;}
+    80%  {margin-right:0%;}
+    95%  {margin-right:2%;}
+    100%  {margin-right:0%;}
+}
+
+
+#animacionDerecha1{
+    margin-left: 30px;
+    animation: amimacion2 2s linear 4s;
+}
+#animacionDerecha2{
+    margin-left: 30px;
+    animation: amimacion2 2s linear 6s;
+}
+
+@keyframes amimacion2 {
+    0%   {margin-left:100%;}
+    25%  {margin-bottom:50%;}
+    50%  {margin-left:50%;}
+    65%  {margin-bottom:60%;}
+    80%  {margin-top:0%;}
+    95%  {margin-top:2%;}
+    100%  {margin-top:0%;}
+}
+
+#animacionArriba{
+    margin-left: 30px;
+    animation: animacionCard 1.5s linear;
+}
+
+
+@keyframes animacionCard {
+    0%   {margin-bottom:100%;}
+    75%  {margin-bottom:-2%;}
+    100%  {margin-bottom:0%;}
+}
+
+#formularioRegistrarUsuario{
+    color: #ffffff;
+    background: #7e6b39;
+}
+
+#map {
+    position: absolute;
+    top: 300px;
+    width: 650px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+
+  #infowindow-content {
+    display: none;
+  }
+
+  #map #infowindow-content {
+    display: inline;
+  }
+
+  .pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+  }
+
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+
+  .pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+  }
+
+  .pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  #pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+
+  #title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+  }

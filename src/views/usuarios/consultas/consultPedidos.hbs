@@ -1,0 +1,64 @@
+<a class="btn btn-light btn-lg mb-3" href="/usuario/menu" role="button">
+  <i class="fa fa-undo" aria-hidden="true"></i> Volver 
+</a>
+{{/if}}
+
+<div id="animacionArriba" class="card ml-auto">
+    <div  class="card-body text-center">
+        <h3><i class="fa fa-truck" aria-hidden="true"></i> Consulta de pedidos</h3>
+    </div>
+</div>
+
+{{/if}}
+{{#each listaProductos_Pedidos}}
+
+<div class="col ml-auto" style="background-color: #fff;margin-top: 25px;padding:20px;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Fecha de Pedido</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{this.pedido.id}}</td>
+                <td>{{../usuarioLog.nombre}}</td>
+                <td>{{this.pedido.correo}}</td>
+                <td>{{this.pedido.fechapedido}}</td>
+                <td>{{this.pedido.estado}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#each this.productos}}
+                <tr>
+                    <td>{{this.idproducto}}</td>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.descripcion}}</td>
+                    <td>{{this.precio}}</td>     
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{{/each}}

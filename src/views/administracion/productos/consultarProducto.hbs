@@ -1,0 +1,49 @@
+<a class="btn btn-light btn-lg mb-3" href="/administracion/menu" role="button">
+  <i class="fa fa-undo" aria-hidden="true"></i> Volver 
+</a>
+
+<div class="col-md-10 offset-md-1" style="background-color: #fff;margin-top: 25px;padding:20px;">
+
+
+<table class="table table-striped" id="tabla1">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+              
+            <th></th>      
+        </tr>
+    </thead>
+    <tbody>
+        {{#each consulta}}
+        <tr>
+            <td>
+                  <a id='colorCafe' href="/administracion/editar/producto/{{_id}}"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+            </td>
+            <td>{{id}}</td>
+            <td>{{nombre}}</td>
+            <td>{{descripcion}}</td>
+            <td>{{precio}}</td>   
+
+            <td>
+                <form action="/administracion/eliminar/producto/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button id='colorCafe'  class="btn btn-light btn-block btn-sm" type="submit">
+                        <i  class="fa fa-trash" aria-hidden="true"></i>Eliminar
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div>
+
+</div>
+
+     
+</div>
